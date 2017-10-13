@@ -1,7 +1,12 @@
 {
   "name": "jasmine-spy-matchers",
   "version": "1.0.0",
-  "description": "",
+  "description": "Additional spy matchers for the Jasmine BDD JavaScript testing library",
+  "keywords": [
+    "jasmine",
+    "matchers",
+    "spy"
+  ],
   "main": "index.js",
   "author": {
     "name": "Alexey Kucherenko",

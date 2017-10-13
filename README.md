@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/killmenot/jasmine-spy-matchers.svg?branch=master)](https://travis-ci.org/killmenot/jasmine-spy-matchers) [![Coverage Status](https://coveralls.io/repos/github/killmenot/jasmine-spy-matchers/badge.svg?branch=master)](https://coveralls.io/github/killmenot/jasmine-spy-matchers?branch=master)
 
-[Jasmine][] custom spy matchers
+Additional spy matchers for the [Jasmine][] BDD JavaScript testing library
 
 
 ## Getting Started
