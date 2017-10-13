@@ -1,0 +1,49 @@
+{
+  "name": "jasmine-spy-matchers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": {
+    "name": "Alexey Kucherenko",
+    "url": "https://github.com/killmenot"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/jasmine-spy-matchers#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasmine-spy-matchers.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jasmine-spy-matchers/issues"
+  },
+  "scripts": {
+    "lint": "jshint spec",
+    "test": "jasmine --config=spec/support/jasmine.json",
+    "coverage": "nyc --reporter=html --reporter=text jasmine --config=spec/support/jasmine.json",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
+  "nyc": {
+    "all": true,
+    "include": [
+      "lib/**/*.js"
+    ],
+    "exclude": [
+      "spec/**/*.js"
+    ]
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.0",
+    "jasmine": "^2.8.0",
+    "jasmine-spec-reporter": "^4.1.1",
+    "jshint": "^2.9.5",
+    "nyc": "^11.1.0",
+    "pre-commit": "^1.2.2"
+  },
+  "peerDependencies": {
+    "jasmine": ">=2.0.0"
+  }
+}
