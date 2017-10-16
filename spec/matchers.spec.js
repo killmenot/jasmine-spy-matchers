@@ -41,7 +41,7 @@ describe('matchers', function () {
       expect(result.message).toBe(expected);
     });
 
-    it('fails when the actual was called with different parameters', function () {
+    it('fails when the actual was called with different context', function () {
       var expected = [
         'Expected spy unknown to have been called with context Object({ foo: \'bar\' })',
         'but actual calls were Object({ baz: \'quux\' }).'
@@ -62,7 +62,36 @@ describe('matchers', function () {
       expect(result.message).toBe(expected);
     });
 
-    it('passes when the actual was called with matching parameters', function () {
+    it('fails when the actual was called with different context and args', function () {
+      var expected = [
+        'Expected spy unknown to have been called with context Object({ foo: \'bar\' }) and [ \'c\', \'d\' ] parameters',
+        'but actual calls were Object({ foo: \'bar\' }), \'c\', \'d\'.'
+      ].join(' ');
+
+      var util = {
+        contains: jasmine.createSpy().and.returnValue(false)
+      };
+      var customEqualityTesters = [];
+      var matcher = matchers.toHaveBeenCalledWithContext(util, customEqualityTesters);
+      var spy = jasmine.createSpy();
+      var context1 = { foo: 'bar' };
+      var context2 = { baz: 'quux' };
+
+      spy.call(context2, 'a', 'b');
+
+      var result = matcher.compare(spy, context1, 'c', 'd');
+
+      expect(util.contains).toHaveBeenCalledWith(
+        [
+          [ { baz: 'quux' }, 'a', 'b' ]
+        ],
+        [ { foo: 'bar' }, 'c', 'd' ],
+        []
+      );
+      expect(result.message).toBe(expected);
+    });
+
+    it('passes when the actual was called with matching context', function () {
       var expected = 'Expected spy unknown not to have been called with context Object({ foo: \'bar\' }) but it was.';
 
       var util = {
@@ -70,13 +99,38 @@ describe('matchers', function () {
       };
       var matcher = matchers.toHaveBeenCalledWithContext(util);
       var spy = jasmine.createSpy();
-      var context = {foo: 'bar'};
+      var context = { foo: 'bar' };
 
       spy.call(context);
 
       var result = matcher.compare(spy, context);
 
       expect(result.pass).toBe(true);
+      expect(result.message).toBe(expected);
+    });
+
+    it('passes when the actual was called with matching context and args', function () {
+      var expected = 'Expected spy unknown not to have been called with context Object({ foo: \'bar\' }) and [ \'a\', \'b\' ] parameters but it was.';
+
+      var util = {
+        contains: jasmine.createSpy().and.returnValue(true)
+      };
+      var customEqualityTesters = [];
+      var matcher = matchers.toHaveBeenCalledWithContext(util, customEqualityTesters);
+      var spy = jasmine.createSpy();
+      var context = { foo: 'bar' };
+
+      spy.call(context, 'a', 'b');
+
+      var result = matcher.compare(spy, context, 'a', 'b');
+
+      expect(util.contains).toHaveBeenCalledWith(
+        [
+          [ { foo: 'bar' }, 'a', 'b' ]
+        ],
+        [ { foo: 'bar' }, 'a', 'b' ],
+        []
+      );
       expect(result.message).toBe(expected);
     });
 
