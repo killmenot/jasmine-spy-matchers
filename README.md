@@ -27,13 +27,22 @@ require('jasmine-spy-matchers');
 
 ```js
 describe('#toHaveBeenCalledWithContext', function () {
-  it('works', function() {
+  it('should work with context', function() {
     var context = {foo: 'bar'};
     var fn = jasmine.createSpy();
 
     fn.call(context);
 
     expect(fn).toHaveBeenCalledWithContext(context);
+  });
+
+  it('should work with context and parameters', function() {
+    var context = {foo: 'bar'};
+    var fn = jasmine.createSpy();
+
+    fn.call(context, 'baz', 'quux');
+
+    expect(fn).toHaveBeenCalledWithContext(context, 'baz', 'quux');
   });
 });
 ```
