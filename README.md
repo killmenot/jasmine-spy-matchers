@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/killmenot/jasmine-spy-matchers.svg?branch=master)](https://travis-ci.org/killmenot/jasmine-spy-matchers) [![Coverage Status](https://coveralls.io/repos/github/killmenot/jasmine-spy-matchers/badge.svg?branch=master)](https://coveralls.io/github/killmenot/jasmine-spy-matchers?branch=master)
 
-Additional spy matchers for the [Jasmine][] BDD JavaScript testing library
+Additional spy matchers and extensions for the [Jasmine][] BDD JavaScript testing library
 
 
 ## Getting Started
@@ -46,6 +46,41 @@ describe('#toHaveBeenCalledWithContext', function () {
   });
 });
 ```
+
+## Jasmine Spy#calls extensions
+
+### thisArgFor(index)
+
+```js
+describe('#thisArgFor', function () {
+  it('should work', function() {
+    var context = {foo: 'bar'};
+    var fn = jasmine.createSpy();
+
+    fn.call(context);
+
+    expect(fn.calls.thisArgFor(0)).toBe(context);
+  });
+});
+```
+
+### at(index)
+
+```js
+describe('#at', function () {
+  it('should work', function() {
+    var context1 = { foo: 'bar' };
+    var context2 = { baz: 'quux' };
+    var fn = jasmine.createSpy();
+
+    fn.call(context1, 'a', 'b');
+    fn.call(context2. 'c', 'd');
+
+    expect(fn.calls.at(1).args).toEqual(['c', 'd']);
+  });
+});
+```
+
 
 ## License
 
