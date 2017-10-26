@@ -16,7 +16,7 @@
   "homepage": "https://github.com/jasmine-spy-matchers#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jasmine-spy-matchers.git"
+    "url": "https://github.com/jasmine-spy-matchers.git"
   },
   "bugs": {
     "url": "https://github.com/jasmine-spy-matchers/issues"
