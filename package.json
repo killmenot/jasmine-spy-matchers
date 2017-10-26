@@ -1,11 +1,14 @@
 {
   "name": "jasmine-spy-matchers",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Additional spy matchers for the Jasmine BDD JavaScript testing library",
   "keywords": [
     "jasmine",
     "matchers",
-    "spy"
+    "spy",
+    "calls",
+    "mixin",
+    "extension"
   ],
   "main": "index.js",
   "author": {
@@ -13,13 +16,13 @@
     "url": "https://github.com/killmenot"
   },
   "license": "MIT",
-  "homepage": "https://github.com/jasmine-spy-matchers#readme",
+  "homepage": "https://github.com/killmenot/jasmine-spy-matchers#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jasmine-spy-matchers.git"
+    "url": "git+https://github.com/killmenot/jasmine-spy-matchers.git"
   },
   "bugs": {
-    "url": "https://github.com/jasmine-spy-matchers/issues"
+    "url": "https://github.com/killmenot/jasmine-spy-matchers/issues"
   },
   "scripts": {
     "lint": "jshint spec",
