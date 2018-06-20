@@ -1,6 +1,6 @@
 {
   "name": "jasmine-spy-matchers",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Additional spy matchers for the Jasmine BDD JavaScript testing library",
   "keywords": [
     "jasmine",

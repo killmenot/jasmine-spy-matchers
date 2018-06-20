@@ -1,4 +1,10 @@
 
+<a name="1.2.1"></a>
+### 1.2.1 (2018-06-20)
+
+ * lock 1.x to work with jasmine ^2.x versions
+
+
 <a name="1.2.0"></a>
 ### 1.2.0 (2017-10-26)
 
