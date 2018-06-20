@@ -1,4 +1,11 @@
 
+<a name="2.0.0"></a>
+### 2.0.0 (2018-06-20)
+
+ * migrate to jasmine 3.x version
+ * drop support node < 4
+
+
 <a name="1.2.1"></a>
 ### 1.2.1 (2018-06-20)
 
