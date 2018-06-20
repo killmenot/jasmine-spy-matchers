@@ -11,6 +11,9 @@
     "extension"
   ],
   "main": "index.js",
+  "engines": {
+    "node": ">=4"
+  },
   "author": {
     "name": "Alexey Kucherenko",
     "url": "https://github.com/killmenot"

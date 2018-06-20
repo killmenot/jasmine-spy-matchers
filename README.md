@@ -4,7 +4,6 @@
 
 Additional spy matchers and extensions for the [Jasmine][] BDD JavaScript testing library
 
-
 ## Getting Started
 
 Get a release tarball, or clone the repository, or use [npm][]
@@ -12,6 +11,8 @@ Get a release tarball, or clone the repository, or use [npm][]
 ```
 npm install jasmine-spy-matchers --save-dev
 ```
+
+> **NOTE**: If you use jasmine 2.x, you need to use 1.x versions of jasmine-spy-matchers
 
 
 ## Usage
