@@ -48,6 +48,35 @@ describe('#toHaveBeenCalledWithContext', function () {
 });
 ```
 
+### toHaveBeenDone()
+
+Read more about nock: https://github.com/nock/nock
+```js
+var http = require('http');
+var nock = require('nock');
+
+describe('#toHaveBeenDone', function () {
+  it('should work with nock expectation', function(done) {
+    nock('http://example.org')
+      .post('/rest/v1/foo')
+      .reply(200, 'ok');
+
+    var options = {
+      hostname: 'example.org',
+      path: '/rest/v1/foo'
+    };
+
+    http.request(options, function (res) {
+      res.setEncoding('utf8');
+      res.on('end', function () {
+        expect(nock).toHaveBeenDone();
+      });
+    });
+  });
+});
+```
+
+
 ## Jasmine Spy#calls extensions
 
 ### thisArgFor(index)

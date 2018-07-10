@@ -150,5 +150,81 @@ describe('matchers', function () {
       expect(util.contains).toHaveBeenCalledWith([{foo: 'bar'}], {foo: 'bar'}, customEqualityTesters);
     });
   });
+
+  describe('toHaveBeenDone', function () {
+    it('throws an exception when actual is not a nock exception', function () {
+      var expected = [
+        '<toHaveBeenDone> : Expected a nock scope, but got \'foo\'.',
+        'Usage: expect(<scopeObj>).toHaveBeenDone()'
+      ].join('\n');
+
+      var matcher = matchers.toHaveBeenDone();
+
+      expect(function() {
+        matcher.compare('foo');
+      }).toThrowError(Error, expected);
+    });
+
+    it('fails when the expectations was not done', function () {
+      var expected = 'Expected nock expectations to have been done but they were never done.';
+
+      var matcher = matchers.toHaveBeenDone();
+      var scope = {
+        isDone: function () { return false; }
+      };
+
+      var result = matcher.compare(scope);
+
+      expect(result.message).toBe(expected);
+    });
+
+    it('fails when the scope expectations was not done', function () {
+      var expected = 'Expected nock scope expectation "GET /api/v1/users" to have been done but it was never done.';
+
+      var matcher = matchers.toHaveBeenDone();
+      var scope = {
+        basePath: '/api/v1/users',
+        interceptors: [
+          { _key: 'GET /api/v1/users' }
+        ],
+        isDone: function () { return false; }
+      };
+
+      var result = matcher.compare(scope);
+
+      expect(result.message).toBe(expected);
+    });
+
+    it('passes when the expectations was done', function () {
+      var expected = 'Expected nock expectations to have not been done but they were done.';
+
+      var matcher = matchers.toHaveBeenDone();
+      var scope = {
+        isDone: function () { return true; }
+      };
+
+      var result = matcher.compare(scope);
+
+      expect(result.pass).toBe(true);
+      expect(result.message).toBe(expected);
+    });
+
+    it('passes when the scope expectations was done', function () {
+      var expected = 'Expected nock scope expectation "GET /api/v1/users" not to have been done but it was.';
+
+      var matcher = matchers.toHaveBeenDone();
+      var scope = {
+        basePath: '/api/v1/users',
+        interceptors: [
+          { _key: 'GET /api/v1/users' }
+        ],
+        isDone: function () { return true; }
+      };
+
+      var result = matcher.compare(scope);
+
+      expect(result.message).toBe(expected);
+    });
+  });
 });
 
