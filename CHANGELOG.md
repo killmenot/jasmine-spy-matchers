@@ -1,4 +1,9 @@
 
+<a name="2.1.0"></a>
+### 2.1.0 (2018-07-11)
+
+ * provide `toHaveBeenDone` for [nock](https://github.com/nock/nock) expectation
+
 <a name="2.0.0"></a>
 ### 2.0.0 (2018-06-20)
 
