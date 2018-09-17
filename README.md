@@ -1,6 +1,9 @@
 # jasmine-spy-matchers
 
-[![Build Status](https://travis-ci.org/killmenot/jasmine-spy-matchers.svg?branch=master)](https://travis-ci.org/killmenot/jasmine-spy-matchers) [![Coverage Status](https://coveralls.io/repos/github/killmenot/jasmine-spy-matchers/badge.svg?branch=master)](https://coveralls.io/github/killmenot/jasmine-spy-matchers?branch=master)
+[![Build Status](https://travis-ci.org/killmenot/jasmine-spy-matchers.svg?branch=master)](https://travis-ci.org/killmenot/jasmine-spy-matchers)
+[![Coverage Status](https://coveralls.io/repos/github/killmenot/jasmine-spy-matchers/badge.svg?branch=master)](https://coveralls.io/github/killmenot/jasmine-spy-matchers?branch=master)
+[![Dependency Status](https://david-dm.org/killmeont/jasmine-spy-matchers.svg)](hhttps://david-dm.org/killmenot/jasmine-spy-matchers)
+[![npm version](https://img.shields.io/npm/v/jasmine-spy-matchers.svg)](https://www.npmjs.com/package/jasmine-spy-matchers)
 
 Additional spy matchers and extensions for the [Jasmine][] BDD JavaScript testing library
 
