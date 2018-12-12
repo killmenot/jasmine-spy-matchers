@@ -1,5 +1,11 @@
 # CHANGELOG
 
+<a name="2.2.0"></a>
+### 2.2.0 (2018-12-12)
+
+ * extend spy strategy with promises values methods (resolveValue, rejectValue, resolveValues, rejectValues)
+
+
 <a name="2.1.1"></a>
 ### 2.1.1 (2018-09-17)
 

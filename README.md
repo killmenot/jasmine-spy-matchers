@@ -114,6 +114,82 @@ describe('#at', function () {
 });
 ```
 
+## Jasmine SpyStrategy extensions
+
+### resolveValue(value)
+
+```js
+describe('#resolveValue', function () {
+  it('should work', function(done) {
+    var spy = jasmine.createSpy();
+
+    spy.and.resolveValue('foo');
+
+    spy.then(function (value) {
+      expect(value).toBe('foo');
+      done();
+    });
+  });
+});
+```
+
+### rejectValue(value)
+
+```js
+describe('#rejectValue', function () {
+  it('should work', function(done) {
+    var spy = jasmine.createSpy();
+
+    spy.and.rejectValue('bar');
+
+    spy.catch(function (value) {
+      expect(value).toBe('bar');
+      done();
+    });
+  });
+});
+```
+
+### resolveValues(value1, value2)
+
+```js
+describe('#resolveValues', function () {
+  it('should work', function(done) {
+    var spy = jasmine.createSpy();
+
+    spy.and.resolveValues('foo', 'bar');
+
+    Promise.all([
+      spy(),
+      spy()
+    ]).then(function (values) {
+      expect(values).toEqual(['foo', 'bar']);
+      done();
+    });
+  });
+});
+```
+
+### rejectValues(value1, value2)
+
+```js
+describe('#rejectValues', function () {
+  it('should work', function(done) {
+    var spy = jasmine.createSpy();
+
+    spy.and.rejectValues('foo', 'bar');
+
+    spy.catch(function (value1) {
+      spy.catch(function (value2) {
+        expect(value1).toBe('foo');
+        expect(value2).toBe('bar');
+        done();
+      });
+    });
+  });
+});
+```
+
 
 ## License
 
